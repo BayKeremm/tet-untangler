@@ -8,9 +8,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
-# Find OpenCL
-find_package(OpenCL REQUIRED)
-
 # Find OpenMP
 find_package(OpenMP)
 
@@ -33,7 +30,7 @@ target_include_directories(untangler3d PRIVATE
 
 target_link_directories(untangler3d PRIVATE "${GEOGRAM_BUILD}/lib")
 
-target_link_libraries(untangler3d PUBLIC OpenCL::OpenCL PRIVATE geogram )
+target_link_libraries(untangler3d PRIVATE geogram )
 
 
 target_compile_options(untangler3d PRIVATE 
