@@ -27,6 +27,10 @@ When calculating scaling speedup, you may notice diminishing returns or even per
 # Example: If your P-cores are mapped to logical CPUs 0 through 5
 taskset -c 0-5 ./your_executable
 ```
+
+Note: Currently, only high level optimization is done on the code (OpenMP).
+I am working on possible putting the jacobian calculation on the GPU with OpenCL and more improvements on the CPU code.
+
 ## Dependencies 
 
 - Geogram 

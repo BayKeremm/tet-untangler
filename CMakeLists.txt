@@ -14,7 +14,7 @@ find_package(OpenCL REQUIRED)
 # Find OpenMP
 find_package(OpenMP)
 
-set(GEOGRAM_ROOT "/home/kerem/phd/software/geogram_1.9.7")
+set(GEOGRAM_ROOT "<YOUR GEOGRAM ROOT>")
 set(GEOGRAM_BUILD "${GEOGRAM_ROOT}/build/Linux64-gcc-dynamic-Release")
 
 # Common compilation flags (equivalent to your CXXFLAGS)
