@@ -15,7 +15,7 @@ While the core math remains similar to the original implementation, several modi
 * **Thread-Local OpenMP Gradients:** The global gradient calculation (`G`) is parallelized using thread-local storage (`G_local_store_`) to prevent race conditions without relying on expensive atomic operations.
 * **Understandable Gradients:** The gradient calculations have been slightly refactored for clarity. If you want to understand the underlying math and derivation for the foldover-free map, refer to [this computational geometry write-up](https://baykeremm.github.io/computational-geometry/foldover/).
 
-## Performance & OpenMP Tuning (Important)
+## Performance & OpenMP Tuning
 
 Careful attention has been paid to how OpenMP is integrated. **More threads do not automatically mean faster execution**, especially on modern hybrid CPU architectures (e.g., Intel processors with Performance and Efficiency cores).
 
@@ -25,11 +25,12 @@ When calculating scaling speedup, you may notice diminishing returns or even per
 
 ```bash
 # Example: If your P-cores are mapped to logical CPUs 0 through 5
-taskset -c 0-5 ./your_executable
+taskset -c 0-5 ./your_executable ../domain_02.msh ../tangled.msh
 ```
 
 Note: Currently, only high level optimization is done on the code (OpenMP).
-I am working on possible putting the jacobian calculation on the GPU with OpenCL and more improvements on the CPU code.
+I am working on possibly putting the jacobian calculation on the GPU with OpenCL and
+more improvements on the CPU code.
 
 ## Dependencies 
 
@@ -48,3 +49,9 @@ make run
 
 This will run the example included in the directory, the `domain_02.msh` is the original domain, then there is the same domain but deformed a bit to create 430 negative tetrahedra. 
 You can inspect the result with `vorpaview out.geogram`.
+
+## License
+
+I have included the original
+license from [ssloy/invertible-maps](https://github.com/ssloy/invertible-maps) 
+and above explained my changes to the code. 
